@@ -177,20 +177,85 @@ fn vectors(){
 
 }
 
-fn use_slice(slice: &[i32]){
+fn use_slice(slice: &mut[i32]){
 
     println!("first = {}, len = {}", slice[0], slice.len());
-
+    slice[0] = 4321;
 }
 
 fn slices(){
 
     let mut data = [1,2,3,4,5];
 
-    use_slice(&data[1..4]);
+    use_slice(&mut data[1..4]);
+
+    //use_slice(&mut data);
+
+    println!("{:?}", data);
+}
+
+fn strings(){
+
+    // utf-8
+    let s:&'static str = "hello"; // &str = string slice
+
+    for c in s.chars().rev(){
+        println!("{}", c);
+    }
+
+    if let Some(first_character) = s.chars().nth(0){
+        println!("first is {}", first_character)
+    }
+
+    //heap
+    //String
+    let mut letters = String::new();
+    let mut a = 'a' as u8;
+    while a <= ('z' as u8){
+        letters.push(a as char);
+        letters.push_str(",");
+        a +=1;
+    }
+    println!("{}", letters);
+
+    // &str <> String
+
+    let u:&str = &letters;
+
+    //concat
+    let z = letters + "abc";
+
+    //let z = letters + &letters;
+
+    let mut abc: String = String::from("hello");
+    let mut abc = "hello".to_string();
+    abc.remove(0);
+    abc.push_str("!!1");
+    let mut a = abc.replace("ello", "bye");
+
+    println!("{}", a);
 
 }
 
+fn sum_and_product(x:i32, y:i32) -> (i32, i32){
+
+    (x+y, x*y)
+}
+
+fn tuples(){
+
+    let x = 3;
+    let y = 4;
+    let sp = sum_and_product(x,y);
+
+    println!("{:?}", sp);
+
+    //destructure
+    let (a,b) = sp;
+    let sp2 = sum_and_product(6,5);
+    let combined = (sp,sp2);
+    let ((c,d),(e.f)) = combined;
+}
 
 pub fn main(){
 
@@ -200,5 +265,7 @@ pub fn main(){
     //options();
     //arrays();
     //vectors();
-    slices();
+    //slices();
+    //strings();
+    //tuples();
 }
