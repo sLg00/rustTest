@@ -3,6 +3,7 @@ mod sh;
 mod ctrlflw;
 mod structures;
 mod patternmatch;
+mod closures;
 
 const MEANING_OF_LIFE:u8 = 42;
 
@@ -72,4 +73,5 @@ fn main(){
     ctrlflw::main();
     structures::main();
     patternmatch::main();
+    closures::main();
 }

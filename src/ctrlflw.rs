@@ -1,8 +1,6 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-use std::mem;
-
 fn ifstatement(){
 
     let temp = 15;
