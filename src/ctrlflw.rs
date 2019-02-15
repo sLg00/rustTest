@@ -80,6 +80,7 @@ fn structs(){
     println!("point p is at ({}, {})", p.x, p.y);
 
     let p2 = Point{x: 5.0 y: 7.0}
+    println!("point p2 is at ({}, {}", p2.x, p2.y)
 
 
 }
