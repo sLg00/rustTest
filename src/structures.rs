@@ -253,8 +253,8 @@ fn tuples(){
     //destructure
     let (a,b) = sp;
     let sp2 = sum_and_product(6,5);
-    let combined = (sp,sp2);
-    let ((c,d),(e.f)) = combined;
+    let combined = (sp, sp2);
+    let ((c,d),(e,f)) = combined;
 }
 
 pub fn main(){
