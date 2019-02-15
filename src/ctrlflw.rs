@@ -54,6 +54,8 @@ fn for_loop(){
 
 fn match_statement(){
 
+    let country_code = 58;
+
 }
 
 pub fn main(){
