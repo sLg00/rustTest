@@ -1,6 +1,8 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
+use std::mem;
+
 fn structs(){
 
     struct Point
@@ -97,7 +99,98 @@ fn options(){
 
 fn arrays(){
 
+    let mut a:[i32;5] = [1,2, 3, 4, 5];
+
+    println!("a has {} elements, first is {}", a.len(), a[0]);
+
+    a[0] = 321;
+    println!("a at 0 is equal to {}", a[0]);
+    println!("{:?}", a);
+
+    if a != [1,2,3,4,5]{
+        println!("does not match");
+    }
+
+    let b = [1;10];
+
+    for i in 0..b.len(){
+        println!("{}", b[i]);
+    }
+
+    println!("b took up {} bytes", mem::size_of_val(&b));
+
+let mtx:[[f32;3];2] = //array of arrays. first is columns, second is rows
+    [
+        [1.0, 0.0, 0.0],
+        [0.0, 2.0, 0.0]
+    ];
+
+    println!("{:?}", mtx);
+
+    for i in 0..mtx.len()
+        {
+            for j in 0..mtx[i].len()
+                {if i == j
+                {
+                    println!("mtx[{}][{}] = {}", i, j, mtx[i][j]);
+                }
+                }
+        }
 }
+
+fn vectors(){
+
+    let mut a = Vec::new();
+    a.push(1);
+    a.push(2);
+    a.push(3);
+
+    println!("{:?}", a);
+
+    a.push(44);
+
+    let idx = 0;
+
+    a[idx] = 321;
+    println!("a[0] = {}", a[idx]);
+
+    //Option
+    match a.get(3) {
+        Some(x) => println!("a[3] = {:?}", x),
+        None => println!("No such element")
+    }
+
+    for x in &a{
+        println!("{}", x);
+    }
+
+    a.push(52);
+    println!("{:?}", a);
+
+    //Some
+    let last_elem = a.pop(); // Option
+    println!("last elem is {:?}, a = {:?}", last_elem, a);
+
+    while let Some(x) = a.pop(){
+        println!("{}", x)
+    }
+
+}
+
+fn use_slice(slice: &[i32]){
+
+    println!("first = {}, len = {}", slice[0], slice.len());
+
+}
+
+fn slices(){
+
+    let mut data = [1,2,3,4,5];
+
+    use_slice(&data[1..4]);
+
+}
+
 
 pub fn main(){
 
@@ -105,5 +198,7 @@ pub fn main(){
     //enums();
     //unions();
     //options();
-    arrays();
+    //arrays();
+    //vectors();
+    slices();
 }
