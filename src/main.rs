@@ -2,6 +2,7 @@ use std::mem;
 mod sh;
 mod ctrlflw;
 mod structures;
+mod patternmatch;
 
 const MEANING_OF_LIFE:u8 = 42;
 
@@ -70,4 +71,5 @@ fn main(){
     sh::stack_and_heap();
     ctrlflw::main();
     structures::main();
+    patternmatch::main();
 }
