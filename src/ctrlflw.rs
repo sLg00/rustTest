@@ -1,3 +1,8 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
+use std::mem;
+
 fn ifstatement(){
 
     let temp = 15;
@@ -68,27 +73,9 @@ fn match_statement(){
 
 }
 
-fn structs(){
-
-    struct Point
-    {
-        x: f64,
-        y: f64
-    }
-
-    let p = Point {x: 3.0, y: 4.0};
-    println!("point p is at ({}, {})", p.x, p.y);
-
-    let p2 = Point{x: 5.0 y: 7.0}
-    println!("point p2 is at ({}, {}", p2.x, p2.y)
-
-
-}
-
 pub fn main(){
     //ifstatement();
     //while_loop();
     //for_loop();
     //match_statement();
-    structs();
 }
